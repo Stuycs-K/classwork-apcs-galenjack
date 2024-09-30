@@ -47,10 +47,12 @@ public static int[] concatArray(int[]ary1,int[]ary2) {
     arr = new int[] {1};
     System.out.println(arrayToString(arr) + arrayToString(newArr) + " Method works: " + (arrayToString(arr) != arrayToString(newArr)));
   }
-  //test case for return Copy
+  //test case for concat 
   public static void testConcat() {
     int[] arr1 = new int[]{103,5353,2,22};
     int[] arr2 = new int[]{55555,0,2,0};
+    System.out.println(arrayToString(concatArray(arr1, arr2)));
+    arr1 = new int[] {};
     System.out.println(arrayToString(concatArray(arr1, arr2)));
   }
   public static void main(String args[]) {
