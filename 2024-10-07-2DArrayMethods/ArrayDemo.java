@@ -7,8 +7,20 @@ public class ArrayDemo{
     //do not use any other Arrays.method()
 
     //arrToString tests
+    int[][] ary1 = new int[][]{{1, 2}, {3, 4}};
+    String testString = Arrays.toString(ary1);
+    System.out.println("testString: " + testString + "Result: " + arrToString(ary1) + "Equals? " + testString.equals(arrToString(ary1)));
+    ary1 = new int[][]{{}, {4,4,4,4,4},{-5}};
+    testString = Arrays.toString(ary1);
+    System.out.println("testString: " + testString + "Result: " + arrToString(ary1) + "Equals? " + testString.equals(arrToString(ary1)));
+    ary1 = new int[][]{{}, {}, {}};
+    testString = Arrays.toString(ary1);
+    System.out.println("testString: " + testString + "Result: " + arrToString(ary1) + "Equals? " + testString.equals(arrToString(ary1)));
+    ary1 = new int[0][0];
+    testString = Arrays.toString(ary1);
+    System.out.println("testString: " + testString + "Result: " + arrToString(ary1) + "Equals? " + testString.equals(arrToString(ary1)));
 
-    //htmlTable
+    //htmlTable tests
 
   }
 
