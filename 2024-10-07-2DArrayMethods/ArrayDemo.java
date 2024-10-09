@@ -21,6 +21,18 @@ public class ArrayDemo{
     System.out.println("testString: " + testString + "Result: " + arrToString(ary1) + "Equals? " + testString.equals(arrToString(ary1)));
 
     //htmlTable tests
+    ary1 = new int[][]{{1, 2}, {3, 4}};
+    testString = "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td><td>4</td></tr></table>";
+    System.out.println("testString: " + testString + "Result: " + htmlTable(ary1) + "Equals? " + testString.equals(htmlTable(ary1)));
+    ary1 = new int[][]{{}, {4,4,4,4,4},{-5}};
+    testString = "<table><tr></tr><tr><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td></tr><tr><td>-5</td></tr></table>";
+    System.out.println("testString: " + testString + "Result: " + htmlTable(ary1) + "Equals? " + testString.equals(htmlTable(ary1)));
+    ary1 = new int[][]{{}, {}, {}};
+    testString = "<table><tr></tr><tr></tr><tr></tr></table>";
+    System.out.println("testString: " + testString + "Result: " + htmlTable(ary1) + "Equals? " + testString.equals(htmlTable(ary1)));
+    ary1 = new int[0][0];
+    testString = "<table></table>";
+    System.out.println("testString: " + testString + "Result: " + htmlTable(ary1) + "Equals? " + testString.equals(htmlTable(ary1)));
 
   }
 
@@ -145,7 +157,7 @@ public class ArrayDemo{
     String subStr = "";
     for (int i = 0; i < nums.length; i++) {
       subStr = "<tr>";
-      for (int n = 0; n < nums.length; n++) {
+      for (int n = 0; n < nums[i].length; n++) {
         subStr += "<td>" + nums[i][n] + "</td>";
       }
       subStr += "</tr>";
