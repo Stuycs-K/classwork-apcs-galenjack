@@ -22,7 +22,7 @@ public class TriangleTester {
         sides[1] = lineScan.nextInt();
         sides[2] = lineScan.nextInt();
         int sum = sides[0] + sides[1] + sides[2];
-        if (Math.max(Math.max(sides[0],sides[1]),sides[2]) < sum/2) count++;
+        if (2 * Math.max(Math.max(sides[0],sides[1]),sides[2]) < sum) count++;
       }
 
       input.close();
@@ -46,21 +46,20 @@ public class TriangleTester {
         sides[index][0] = lineScan.nextInt();
         sides[index][1] = lineScan.nextInt();
         sides[index][2] = lineScan.nextInt();
-        System.out.println(sides);
         if (index == 2) {
           index = 0;
           sum = sides[0][0] + sides[1][0] + sides[2][0];
-          if (Math.max(Math.max(sides[0][0],sides[1][0]),sides[2][0]) < sum/2) count++;
+          if (2 * Math.max(Math.max(sides[0][0],sides[1][0]),sides[2][0]) < sum) count++;
           sum = sides[0][1] + sides[1][1] + sides[2][1];
-          if (Math.max(Math.max(sides[0][1],sides[1][1]),sides[2][1]) < sum/2) count++;
+          if (2 * Math.max(Math.max(sides[0][1],sides[1][1]),sides[2][1]) < sum) count++;
           sum = sides[0][2] + sides[1][2] + sides[2][2];
-          if (Math.max(Math.max(sides[0][2],sides[1][2]),sides[2][2]) < sum/2) count++;
+          if (2 * Math.max(Math.max(sides[0][2],sides[1][2]),sides[2][2]) < sum) count++;
           sides = new int[3][3];
         }
         else {
           index++;
         }
-      }  
+      }
         input.close();
         return count;
     }
@@ -71,6 +70,7 @@ public class TriangleTester {
   }
 
   public static void main(String[] args) {
+    System.out.println(countTrianglesA("inputTri.txt"));
     System.out.println(countTrianglesB("inputTri.txt"));
   }
 
