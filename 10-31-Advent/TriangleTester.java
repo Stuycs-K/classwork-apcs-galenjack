@@ -38,20 +38,24 @@ public class TriangleTester {
       Scanner input = new Scanner(file);
       int count = 0;
       int index = 0;
+      int sum = 0;
       int[][] sides = new int[3][3];
       while (input.hasNextLine()) {
-        String line = input.nextLine():
+        String line = input.nextLine();
         Scanner lineScan = new Scanner(line);
         sides[index][0] = lineScan.nextInt();
         sides[index][1] = lineScan.nextInt();
         sides[index][2] = lineScan.nextInt();
-
-        if (index > 2) {
+        System.out.println(sides);
+        if (index == 2) {
           index = 0;
+          sum = sides[0][0] + sides[1][0] + sides[2][0];
           if (Math.max(Math.max(sides[0][0],sides[1][0]),sides[2][0]) < sum/2) count++;
+          sum = sides[0][1] + sides[1][1] + sides[2][1];
           if (Math.max(Math.max(sides[0][1],sides[1][1]),sides[2][1]) < sum/2) count++;
+          sum = sides[0][2] + sides[1][2] + sides[2][2];
           if (Math.max(Math.max(sides[0][2],sides[1][2]),sides[2][2]) < sum/2) count++;
-          int[][] sides = new int[3][3];
+          sides = new int[3][3];
         }
         else {
           index++;
@@ -59,6 +63,7 @@ public class TriangleTester {
       }  
         input.close();
         return count;
+    }
     catch (FileNotFoundException ex) {
       System.out.println("File not found");
       return -1;
