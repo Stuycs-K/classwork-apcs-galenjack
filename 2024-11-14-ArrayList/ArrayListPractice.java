@@ -29,11 +29,31 @@ public static ArrayList<String> makeReversedList(ArrayList<String> original){
   return ret;
 }
 
+public static ArrayList<String> mixLists(ArrayList<String> a, ArrayList<String> b){
+  ArrayList<String> ret = new ArrayList<String>();
+  for(int i = 0; i < Math.min(a.size(), b.size());i++ ){
+    ret.add(a.get(i));
+    ret.add(b.get(i));
+  }
+  if(a.size() > b.size()){
+    for(int i = b.size(); i < a.size(); i++){
+      ret.add(a.get(i));
+    }
+  }else{
+    for(int i = a.size(); i < b.size(); i++){
+      ret.add(b.get(i));
+    }
+  }
+  return ret;
+}
+
   public static void main(String[]args) {
     ArrayList<String> test = createRandomArray(10);
+    ArrayList<String> test2 = createRandomArray(14);
     replaceEmpty(test);
-    System.out.print(test);
-    test = makeReversedList(test);
-    System.out.print(test);
+    System.out.println(test);
+    // test = makeReversedList(test);
+    System.out.println(test2);
+    System.out.println(mixLists(test, test2));
   }
 }
