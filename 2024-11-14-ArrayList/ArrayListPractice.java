@@ -47,13 +47,4 @@ public static ArrayList<String> mixLists(ArrayList<String> a, ArrayList<String> 
   return ret;
 }
 
-  public static void main(String[]args) {
-    ArrayList<String> test = createRandomArray(10);
-    ArrayList<String> test2 = createRandomArray(14);
-    replaceEmpty(test);
-    System.out.println(test);
-    // test = makeReversedList(test);
-    System.out.println(test2);
-    System.out.println(mixLists(test, test2));
-  }
 }
