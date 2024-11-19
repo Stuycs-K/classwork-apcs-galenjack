@@ -21,20 +21,25 @@ public class day1 {
     }
   }
   public static void main(String[] args){
-    int sumR = 0;
-    int sumL = 0;
-    int rDir = 1;
-    int lDir = 1;
+    int x = 0; int y = 0; int facing = 0;
+    int[][] offset = {
+      {1,0}, {0,1}, {-1,0}, {0, -1}
+    };
     String[] input = takeInput("day1input.txt");
-    System.out.println(Arrays.toString(takeInput("day1input.txt")));
     for (int i = 0; i < input.length; i++) {
       if (input[i].charAt(0) == 'L') {
-        sum = sum - Integer.parseInt(input[i].substring(1));
+        facing+=1;
+        facing = (facing + 4)%4;
+        x += offset[facing][0] * Integer.parseInt(input[i].substring(1));
+        y += offset[facing][1] * Integer.parseInt(input[i].substring(1));
       }
       if (input[i].charAt(0) == 'R') {
-        sum = sum + Integer.parseInt(input[i].substring(1));
+        facing -= 1;
+        facing = (facing + 4)%4;
+        x += offset[facing][0] * Integer.parseInt(input[i].substring(1));
+        y += offset[facing][1] * Integer.parseInt(input[i].substring(1));
       }
     }
-    System.out.println(Math.abs(sum));
+    System.out.println(Math.abs(x) + Math.abs(y));
   }
 }
