@@ -30,6 +30,29 @@ public class Ranger extends Adventurer{
     }
     
     public static int getSpecialMax(int n){
-        specialMax = n;
+        return specialMax;
     }
+    public static String attack(Adventurer other) {
+        other.applyDamage(1 + specialBuff);
+    }
+
+  //heall or buff the target adventurer
+    public static String support(Adventurer other) {
+        other.setHP(other.getHP() + 1 + specialBuff);
+    }
+
+  //heall or buff self
+    public static String support() {
+        this.setHP(this.getHP() + specialBuff + 1);
+    }
+
+  //hurt or hinder the target adventurer, consume some special resource
+    public abstract String specialAttack(Adventurer other) {
+        other.applyDamage(specialBuff * 5);
+        this.setSpecial(0);
+    }
+
+
+
+    
 }
