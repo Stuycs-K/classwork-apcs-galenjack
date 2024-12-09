@@ -71,7 +71,7 @@ public abstract class Adventurer{
 
   //Get Methods
   public String getName(){
-    return name;cz
+    return name;
   }
 
   public int getHP(){
