@@ -1,12 +1,12 @@
 public class Ranger extends Adventurer{
     private String bowName;
     private String special;
-    private int specialBuff = 0;
+    private int specialBuff = 5;
     private int specialMax = 0;
     public Ranger(String name){
         super(name);
         bowName = "Longbow";
-        special = "Aim potion";
+        special = "aim potion";
         specialBuff = 1;
         specialMax = 10;
         
@@ -34,7 +34,7 @@ public class Ranger extends Adventurer{
     }
     public String attack(Adventurer other) {
         other.applyDamage(1 + specialBuff);
-        return "";
+        return "Attacked " + other.getName() + " dealing " + 1 + specialBuff + " damage.";
     }
 
   //heall or buff the target adventurer
@@ -46,14 +46,16 @@ public class Ranger extends Adventurer{
   //heall or buff self
     public String support() {
         this.setHP(this.getHP() + specialBuff + 1);
-        return "";
+        return this.getName() + " restored " + specialBuff + 1 + " health. You now have " + this.getHP() + " health.";
     }
 
   //hurt or hinder the target adventurer, consume some special resource
     public String specialAttack(Adventurer other) {
+        int temp = specialBuff;
         other.applyDamage(specialBuff * 5);
         this.setSpecial(0);
-        return "";
+        return "Dealt " + temp * 5 + " damage using " + special +  ". Special is once again at 0";
+        
     }
 
 
